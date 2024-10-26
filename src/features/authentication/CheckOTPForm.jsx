@@ -4,8 +4,9 @@ import { useMutation } from "@tanstack/react-query";
 import { checkOtp } from "../../services/authService";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { HiArrowRight } from "react-icons/hi";
 
-export default function CheckOTPForm({ phoneNumber }) {
+export default function CheckOTPForm({ phoneNumber, onBack }) {
   const [otp, setOtp] = useState("");
   const { isPending, mutateAsync } = useMutation({ mutationFn: checkOtp });
   const navigate = useNavigate();
@@ -31,6 +32,9 @@ export default function CheckOTPForm({ phoneNumber }) {
 
   return (
     <div>
+      <button onClick={onBack}>
+        <HiArrowRight className="h-5 w-5 text-secondary-500" />
+      </button>
       <form className="space-y-6" onSubmit={handleCheckOtp}>
         <p className="font-bold text-secondary-800">کد تایید را وارد کنید</p>
         <OtpInput

@@ -17,7 +17,12 @@ export default function AuthContainer() {
           />
         );
       case 2:
-        return <CheckOTPForm phoneNumber={phoneNumber} />;
+        return (
+          <CheckOTPForm
+            phoneNumber={phoneNumber}
+            onBack={() => setStep((s) => s - 1)}
+          />
+        );
       default:
         return null;
     }
