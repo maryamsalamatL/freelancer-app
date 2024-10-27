@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { HiArrowRight } from "react-icons/hi";
 import { BiSolidEditAlt } from "react-icons/bi";
+import Loading from "../../ui/Loading";
 
 const RESEND_OTP_TIME = 90;
 
@@ -87,9 +88,13 @@ export default function CheckOTPForm({
           containerStyle="flex flex-row-reverse justify-center"
           inputStyle="block !w-8 h-10 border border-primary-400 rounded-lg mx-1 sm:mx-2 text-secondary-800 focus:shadow focus:shadow-primary-500"
         />
-        <button className="btn btn--primary w-full" type="submit">
-          تایید
-        </button>
+        {isPending ? (
+          <Loading />
+        ) : (
+          <button className="btn btn--primary w-full" type="submit">
+            تایید
+          </button>
+        )}
       </form>
     </div>
   );
