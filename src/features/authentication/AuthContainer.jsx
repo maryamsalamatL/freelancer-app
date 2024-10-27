@@ -31,7 +31,7 @@ export default function AuthContainer() {
             onSendOtp={handleSendOtp}
             isSendingOtp={isSendingOtp}
             phoneNumber={phoneNumber}
-            setPhoneNumber={(e) => setPhoneNumber(e.target.value)}
+            onChange={(e) => setPhoneNumber(e.target.value)}
           />
         );
       case 2:
