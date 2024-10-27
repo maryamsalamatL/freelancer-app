@@ -5,10 +5,16 @@ import { checkOtp } from "../../services/authService";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { HiArrowRight } from "react-icons/hi";
+import { BiSolidEditAlt } from "react-icons/bi";
 
 const RESEND_OTP_TIME = 90;
 
-export default function CheckOTPForm({ phoneNumber, onBack, onResendOtp }) {
+export default function CheckOTPForm({
+  phoneNumber,
+  onBack,
+  onResendOtp,
+  otpResponse,
+}) {
   const [otp, setOtp] = useState("");
   const [time, setTime] = useState(RESEND_OTP_TIME);
   const { isPending, mutateAsync } = useMutation({ mutationFn: checkOtp });
@@ -60,6 +66,14 @@ export default function CheckOTPForm({ phoneNumber, onBack, onResendOtp }) {
           <button onClick={onResendOtp}>ارسال مجدد کد تایید</button>
         )}
       </div>
+      {otpResponse && (
+        <p className="flex items-center gap-x-2 mb-4">
+          <span>{otpResponse?.message}</span>
+          <button onClick={onBack}>
+            <BiSolidEditAlt className="w-5 h-5 text-primary-900" />
+          </button>
+        </p>
+      )}
       <form className="space-y-6" onSubmit={handleCheckOtp}>
         <p className="font-bold text-secondary-800">کد تایید را وارد کنید</p>
         <OtpInput
