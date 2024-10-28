@@ -4,7 +4,6 @@ import RadioInput from "../../ui/RadioInput";
 import { useMutation } from "@tanstack/react-query";
 import { completeProfile } from "../../services/authService";
 import toast from "react-hot-toast";
-import axios from "axios";
 import Loading from "../../ui/Loading";
 
 export default function CompleteProfileForm() {
