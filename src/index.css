@@ -55,7 +55,7 @@
 
 @layer components {
   .textField__input {
-    @apply w-full rounded-lg border border-gray-300 py-2 px-4 text-secondary-900 hover:border-primary-300 focus:border-primary-300 focus:bg-white focus:shadow-md focus:shadow-primary-100 transition-all duration-200 ease-in;
+    @apply w-full rounded-lg border bg-secondary-50 border-secondary-200 py-2 px-4 text-secondary-900 hover:border-primary-300 focus:border-primary-300 focus:bg-white focus:shadow-md focus:shadow-primary-100 transition-all duration-200 ease-in;
   }
 
   .btn {
