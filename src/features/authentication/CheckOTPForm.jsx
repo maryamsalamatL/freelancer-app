@@ -30,11 +30,13 @@ export default function CheckOTPForm({
       });
       toast.success(message);
 
-      if (user.isActive) {
-        // TODO: push to panel based on Role
-      } else {
-        navigate("/complete-profile");
+      if (!user.isActive) return navigate("/complete-profile");
+      if (user.status !== 2) {
+        toast("پروفایل شما در انتظار تایید است.");
+        return navigate("/");
       }
+      if (user.role === "OWNER") return navigate("/owner");
+      if (user.role === "FREELANCER") return navigate("/freelancer");
     } catch (error) {
       toast.error(error?.response?.data?.message || error.message);
     }

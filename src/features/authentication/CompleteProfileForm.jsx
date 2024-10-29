@@ -5,11 +5,13 @@ import { useMutation } from "@tanstack/react-query";
 import { completeProfile } from "../../services/authService";
 import toast from "react-hot-toast";
 import Loading from "../../ui/Loading";
+import { useNavigate } from "react-router-dom";
 
 export default function CompleteProfileForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
+  const navigate = useNavigate();
   const { mutateAsync, isPending } = useMutation({
     mutationFn: completeProfile,
   });
@@ -17,13 +19,19 @@ export default function CompleteProfileForm() {
   const handleCompleteProfile = async (e) => {
     e.preventDefault();
     try {
-      const { message } = await mutateAsync({
+      const { user, message } = await mutateAsync({
         email,
         name,
         role,
       });
       toast.success(message);
-      // TODO: check user status and push to ...
+
+      if (user.status !== 2) {
+        toast("پروفایل شما در انتظار تایید است.");
+        return navigate("/");
+      }
+      if (user.role === "OWNER") return navigate("/owner");
+      if (user.role === "FREELANCER") return navigate("/freelancer");
     } catch (error) {
       toast.error(error?.response?.data?.message || error.message);
     }
