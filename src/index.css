@@ -69,6 +69,26 @@
   .btn--secondary {
     @apply bg-secondary-500 text-secondary-100 hover:bg-secondary-700 shadow-md shadow-secondary-300;
   }
+
+  .badge {
+    @apply inline-block whitespace-nowrap rounded-xl px-2 py-0.5;
+  }
+
+  .badge--primary {
+    @apply bg-primary-900 text-white;
+  }
+
+  .badge--secondary {
+    @apply bg-secondary-200 text-secondary-600;
+  }
+
+  .badge--success {
+    @apply bg-green-500 text-white;
+  }
+
+  .badge--danger {
+    @apply bg-red-500 text-white;
+  }
 }
 
 html,
@@ -99,4 +119,35 @@ button:disabled {
   background-color: rgb(var(--color-secondary-100), 0.5);
   pointer-events: none;
   box-shadow: none;
+}
+
+/* TABLE */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+table .title-row {
+  background-color: rgb(var(--color-secondary-100));
+}
+
+table td,
+table th {
+  border-bottom: 1px solid rgb(var(--color-secondary-200));
+  text-align: right;
+  white-space: nowrap;
+}
+
+table th {
+  padding: 0.6rem 1rem;
+  color: rgb(var(--color-secondary-600));
+  font-size: 0.9rem;
+}
+
+table td {
+  font-size: 0.85rem;
+  padding: 1rem 1rem;
+  color: rgb(var(--color-secondary-600));
 }
