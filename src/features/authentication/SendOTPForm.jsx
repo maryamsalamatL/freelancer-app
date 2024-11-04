@@ -4,8 +4,8 @@ import Loading from "../../ui/Loading";
 export default function SendOTPForm({
   onSendOtp,
   isSendingOtp,
-  phoneNumber,
-  onChange,
+  register,
+  errors,
 }) {
   return (
     <div>
@@ -13,8 +13,11 @@ export default function SendOTPForm({
         <TextField
           label="شماره موبایل"
           name="phoneNumber"
-          value={phoneNumber}
-          onChange={onChange}
+          register={register}
+          validationSchema={{ required: "شماره موبایل ضروری است" }}
+          type="number"
+          errors={errors}
+          required
         />
         <div>
           {isSendingOtp ? (
