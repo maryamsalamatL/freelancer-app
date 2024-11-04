@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import Loading from "../../ui/Loading";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import RadioInputGroup from "../../ui/RadioInputGroup";
 
 export default function CompleteProfileForm() {
   const {
@@ -65,33 +66,19 @@ export default function CompleteProfileForm() {
           errors={errors}
           required
         />
-        <div>
-          <div className="flex justify-center gap-x-6">
-            <RadioInput
-              name="role"
-              value="OWNER"
-              label="کارفرما"
-              id="OWNER"
-              watch={watch}
-              register={register}
-              validationSchema={{ required: "انتخاب نقش ضروری است" }}
-            />
-            <RadioInput
-              name="role"
-              value="FREELANCER"
-              label="فریلنسر"
-              id="FREELANCER"
-              watch={watch}
-              register={register}
-              validationSchema={{ required: "انتخاب نقش ضروری است" }}
-            />
-          </div>
-          {errors && errors["role"] && (
-            <span className="text-error text-xs block mt-2">
-              {errors["role"]?.message}
-            </span>
-          )}
-        </div>
+        <RadioInputGroup
+          register={register}
+          watch={watch}
+          errors={errors}
+          config={{
+            name: "role",
+            validationSchema: { required: "انتخاب نقش ضروری است" },
+            options: [
+              { value: "OWNER", label: "کارفرما" },
+              { value: "FREELANCER", label: "فریلنسر" },
+            ],
+          }}
+        />
         {isPending ? (
           <Loading />
         ) : (
