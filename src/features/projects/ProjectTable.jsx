@@ -8,7 +8,7 @@ export default function ProjectTable() {
   const { projects, isLoading } = useOwnerProjects();
 
   if (isLoading) return <Loading />;
-  if (!projects.length) return <Empty resourceName="پروژه" />;
+  if (!projects?.length) return <Empty resourceName="پروژه" />;
 
   return (
     <Table>
