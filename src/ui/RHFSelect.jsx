@@ -1,23 +1,29 @@
-export default function TextField({
+export default function RHFSelect({
   name,
   label,
   register,
   validationSchema,
   errors,
+  options,
   required,
-  type = "text",
 }) {
   return (
     <div>
-      <label htmlFor={name} className="label">
+      <label htmlFor="category" className="label">
         {label} {required && <span className="text-error">*</span>}
       </label>
-      <input
-        type={type}
+      <select
         id={name}
         className="textField__input"
         {...register(name, validationSchema)}
-      />
+      >
+        <option value="">یک دسته بندی را انتخاب کنید</option>
+        {options.map(({ value, label }) => (
+          <option key={value} value={value} label={label}>
+            {label}
+          </option>
+        ))}
+      </select>
       {errors && errors[name] && (
         <span className="text-error text-xs block mt-2">
           {errors[name]?.message}

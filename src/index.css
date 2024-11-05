@@ -70,8 +70,8 @@
     @apply bg-secondary-500 text-secondary-100 hover:bg-secondary-700 shadow-md shadow-secondary-300;
   }
 
-  .btn--danger{
-@apply border border-rose-700 text-rose-700;
+  .btn--danger {
+    @apply border border-rose-700 text-rose-700;
   }
 
   .badge {
@@ -96,6 +96,10 @@
 
   .icon {
     @apply w-5 h-5;
+  }
+
+  .label {
+    @apply mb-2 block text-secondary-700;
   }
 }
 
@@ -158,4 +162,34 @@ table td {
   font-size: 0.85rem;
   padding: 1rem 1rem;
   color: rgb(var(--color-secondary-600));
+}
+
+/* react-tag-input-component */
+.rti--container {
+  width: 100%;
+  border-radius: 8px;
+  background-color: rgb(var(--color-secondary-50));
+  border: 1px solid rgb(var(--color-secondary-200));
+  padding: 0.5rem 1rem;
+  color: rgb(var(--color-secondary-900));
+  transition: all 200ms ease-in;
+}
+
+.rti--container:focus,
+.rti--container:hover {
+  box-shadow: 0 0 5px rgb(var(--color-primary-300));
+  border: 1px solid rgb(var(--color-primary-300));
+  background-color: rgb(var(--color-secondary-0));
+}
+
+.rti--tag {
+  color: rgb(var(--color-secondary-900));
+  background-color: rgb(var(--color-primary-100), 0.5);
+  border-radius: 5px;
+}
+
+.rti--input {
+  background-color: rgb(var(--color-primary-100), 0.5);
+  padding: 2px 5px;
+  border-radius: 5px;
 }
