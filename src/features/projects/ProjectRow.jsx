@@ -8,6 +8,7 @@ import Modal from "../../ui/Modal";
 import { useState } from "react";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import useRemoveProject from "./useRemoveProject";
+import CreateProjectForm from "./CreateProjectForm";
 
 export default function ProjectRow({ project, i }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -49,7 +50,10 @@ export default function ProjectRow({ project, i }) {
               onClose={() => setIsEditOpen(false)}
               title={"modal title"}
             >
-              TODO : edit project ...
+              <CreateProjectForm
+                projectToEdit={project}
+                onClose={() => setIsEditOpen(false)}
+              />
             </Modal>
           </>
           <>

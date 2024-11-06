@@ -9,18 +9,37 @@ import persian_fa from "react-date-object/locales/persian_fa";
 import useCategories from "../../hooks/useCategories.js";
 import useCreateProject from "./useCreateProject.js";
 import Loading from "../../ui/Loading.jsx";
+import useEditProject from "./useEditProject.js";
 
-export default function CreateProjectForm({ onClose }) {
+export default function CreateProjectForm({ onClose, projectToEdit = {} }) {
+  const {
+    _id: editId,
+    title,
+    category,
+    budget,
+    deadline,
+    description,
+    tags: prevTags,
+  } = projectToEdit;
+  const isEditSession = !!editId;
+  let editValues = {};
+  if (isEditSession) {
+    editValues = { title, description, category: category?._id, budget };
+  }
+
   const {
     register,
     formState: { errors },
     handleSubmit,
     reset,
-  } = useForm();
-  const [tags, setTags] = useState([]);
-  const [date, setDate] = useState(new Date());
+  } = useForm({
+    defaultValues: editValues,
+  });
+  const [tags, setTags] = useState(prevTags || []);
+  const [date, setDate] = useState(new Date(deadline || ""));
   const { categories } = useCategories();
   const { isCreating, createProject } = useCreateProject();
+  const { isEditing, editProject } = useEditProject();
 
   const onSubmit = (data) => {
     const newProject = {
@@ -28,12 +47,25 @@ export default function CreateProjectForm({ onClose }) {
       deadline: new Date(date).toISOString(),
       tags,
     };
-    createProject(newProject, {
-      onSuccess: () => {
-        onClose();
-        reset();
-      },
-    });
+
+    if (isEditSession) {
+      editProject(
+        { id: editId, newProject },
+        {
+          onSuccess: () => {
+            onClose();
+            reset();
+          },
+        }
+      );
+    } else {
+      createProject(newProject, {
+        onSuccess: () => {
+          onClose();
+          reset();
+        },
+      });
+    }
   };
 
   return (
@@ -109,7 +141,7 @@ export default function CreateProjectForm({ onClose }) {
         />
       </div>
 
-      {isCreating ? (
+      {isCreating || isEditing ? (
         <Loading />
       ) : (
         <button type="submit" className="btn btn--primary w-full">
