@@ -23,7 +23,7 @@ export default function ProjectRow({ project, i }) {
       <td>{toPersianNumbersWithComma(project.budget)}</td>
       <td>{toLocalDateShort(project.deadline)}</td>
       <td>
-        <div className="flex flex-wrap max-w-[200px]">
+        <div className="flex flex-wrap max-w-[200px] gap-1">
           {project.tags.map((tag) => (
             <span className="badge badge--secondary" key={tag}>
               {tag}

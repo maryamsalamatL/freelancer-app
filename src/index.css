@@ -188,6 +188,14 @@ table td {
   border-radius: 5px;
 }
 
+.rti--tag:hover {
+  background-color: rgb(var(--color-primary-100));
+}
+
+.rti--tag button:hover {
+  color: rgb(var(--color-error));
+}
+
 .rti--input {
   background-color: rgb(var(--color-primary-100), 0.5);
   padding: 2px 5px;
