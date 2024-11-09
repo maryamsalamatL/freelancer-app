@@ -17,7 +17,6 @@ export default function RHFSelect({
         className="textField__input"
         {...register(name, validationSchema)}
       >
-        <option value="">یک دسته بندی را انتخاب کنید</option>
         {options.map(({ value, label }) => (
           <option key={value} value={value} label={label}>
             {label}
