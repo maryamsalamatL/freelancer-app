@@ -1,3 +1,17 @@
+import ProjectHeader from "../features/project/ProjectHeader";
+import ProposalsTable from "../features/project/ProposalsTable";
+import useProject from "../features/Project/useProject";
+import Loading from "../ui/Loading";
+
 export default function Project() {
-  return <div>project</div>;
+  const { project, isLoading } = useProject();
+
+  if (isLoading) return <Loading />;
+
+  return (
+    <div>
+      <ProjectHeader project={project} />
+      <ProposalsTable proposals={project.proposals} />
+    </div>
+  );
 }
