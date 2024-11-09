@@ -17,7 +17,7 @@ export default function ProjectRow({ project, i }) {
   const { removeProject, isRemoving } = useRemoveProject();
 
   return (
-    <Table.Row key={project._id}>
+    <Table.Row>
       <td>{i + 1}</td>
       <td>{truncateText(project.title, 30)}</td>
       <td>{project.category.title}</td>
@@ -32,7 +32,7 @@ export default function ProjectRow({ project, i }) {
           ))}
         </div>
       </td>
-      <td>{project?.freelancer || "-"}</td>
+      <td>{project?.freelancer?.name || "-"}</td>
       <td>
         <ToggleProjectStatus project={project} />
       </td>
