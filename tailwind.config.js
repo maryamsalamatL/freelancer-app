@@ -54,6 +54,7 @@ export default {
       },
     },
   },
+  darkMode: ["class", '[class="dark-mode"]'],
   plugins: [
     tailwindCssForms({
       strategy: "class",
