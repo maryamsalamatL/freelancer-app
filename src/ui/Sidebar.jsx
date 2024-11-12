@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Sidebar() {
   return (
-    <div className="py-8 px-4 row-start-1 row-span-2 col-start-1 col-span-1 border-l border-secondary-200">
+    <div className="bg-secondary-0 py-8 px-4 row-start-1 row-span-2 col-start-1 col-span-1 border-l border-secondary-200">
       <ul className="space-y-2">
         <li>
           <CustomNavLink to="dashboard">
@@ -30,7 +30,7 @@ function CustomNavLink({ children, to }) {
       to={to}
       className={({ isActive }) =>
         isActive
-          ? `${navClass} bg-primary-100/50 text-primary-900`
+          ? `${navClass} bg-primary-100/80 text-primary-900`
           : `${navClass} text-secondary-600`
       }
     >
