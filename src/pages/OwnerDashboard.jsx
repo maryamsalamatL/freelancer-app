@@ -1,12 +1,5 @@
-import { Outlet } from "react-router-dom";
+import Dashboard from "../features/owner/Dashboard";
 
 export default function OwnerDashboard() {
-  return (
-    <div>
-      Owner Dashboard
-      <div>
-        <Outlet />
-      </div>
-    </div>
-  );
+  return <Dashboard />;
 }
