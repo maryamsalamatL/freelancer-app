@@ -1,17 +1,17 @@
-import Stats from "./Stats";
 import Loading from "../../ui/Loading";
-import useOwnerProjects from "../projects/useOwnerProjects";
+import useProposals from "../proposals/useProposals";
+import Stats from "./Stats";
 import DashboardHeader from "../../ui/DashboardHeader";
 
 export default function Dashboard() {
-  const { isLoading, projects } = useOwnerProjects();
+  const { proposals, isLoading } = useProposals();
 
   return isLoading ? (
     <Loading />
   ) : (
     <div>
       <DashboardHeader />
-      <Stats projects={projects} />
+      <Stats proposals={proposals} />
     </div>
   );
 }

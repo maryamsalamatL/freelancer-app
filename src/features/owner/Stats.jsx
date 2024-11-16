@@ -3,7 +3,7 @@ import {
   HiCurrencyDollar,
   HiOutlineViewGrid,
 } from "react-icons/hi";
-import Stat from "./Stat";
+import Stat from "../../ui/Stat";
 
 export default function Stats({ projects }) {
   const numOfProjects = projects.length;
@@ -13,7 +13,6 @@ export default function Stats({ projects }) {
     0
   );
 
-  console.log(numOfProposals);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <Stat
