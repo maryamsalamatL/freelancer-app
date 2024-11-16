@@ -1,7 +1,10 @@
-import { HiCurrencyDollar, HiOutlineViewGrid } from "react-icons/hi";
+import {
+  HiCheckCircle,
+  HiCurrencyDollar,
+  HiOutlineViewGrid,
+} from "react-icons/hi";
 import Stat from "../../ui/Stat";
 import { toPersianNumbersWithComma } from "../../utils/toPersianNumber";
-import { FaCheckCircle } from "react-icons/fa";
 
 export default function Stats({ proposals }) {
   const numOfProposals = proposals.length;
@@ -9,7 +12,7 @@ export default function Stats({ proposals }) {
   const balance = acceptedProposals.reduce((acc, curr) => acc + curr.price, 0);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       <Stat
         icon={<HiOutlineViewGrid className="w-20 h-20" />}
         title={"درخواست ها"}
@@ -17,16 +20,16 @@ export default function Stats({ proposals }) {
         color={"primary"}
       />
       <Stat
-        icon={<FaCheckCircle className="w-20 h-20" />}
+        icon={<HiCheckCircle className="w-20 h-20" />}
         title={"درخواست های تایید شده"}
         value={acceptedProposals.length}
-        color={"yellow"}
+        color={"green"}
       />
       <Stat
         icon={<HiCurrencyDollar className="w-20 h-20" />}
         title={"کیف پول"}
         value={toPersianNumbersWithComma(balance)}
-        color={"green"}
+        color={"purple"}
       />
     </div>
   );
