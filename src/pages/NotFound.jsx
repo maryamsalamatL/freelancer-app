@@ -6,7 +6,7 @@ export default function NotFound() {
 
   return (
     <div className="container sm:max-w-screen-sm pt-10 space-y-6">
-      <h1 className="font bold text-xl text-secondary-700">
+      <h1 className="font-bold text-xl text-secondary-700">
         صفحه مورد نظر یافت نشد.
       </h1>
       <button
