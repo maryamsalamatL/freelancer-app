@@ -3,6 +3,9 @@ import { toPersianNumbersWithComma } from "../../../utils/toPersianNumber";
 import truncateText from "../../../utils/truncateText";
 import toLocalDateShort from "../../../utils/toLocalDateShort";
 import { MdAssignmentAdd } from "react-icons/md";
+import { useState } from "react";
+import Modal from "../../../ui/Modal";
+import CreateNewProposalForm from "../../proposals/CreateNewProposalForm";
 
 const projectStatus = {
   OPEN: {
@@ -16,7 +19,9 @@ const projectStatus = {
 };
 
 export default function ProjectRow({ project, i }) {
-  const { title, budget, deadline, status } = project;
+  const { title, budget, deadline, status, _id } = project;
+  const [open, setOpen] = useState(false);
+
   return (
     <Table.Row>
       <td>{i + 1}</td>
@@ -29,9 +34,19 @@ export default function ProjectRow({ project, i }) {
         </span>
       </td>
       <td>
-        <button>
+        <button onClick={() => setOpen(true)}>
           <MdAssignmentAdd className="icon text-primary-900" />
         </button>
+        <Modal
+          open={open}
+          onClose={() => setOpen(false)}
+          title={`درخواست انجام پروژه ${title}`}
+        >
+          <CreateNewProposalForm
+            onClose={() => setOpen(false)}
+            projectId={_id}
+          />
+        </Modal>
       </td>
     </Table.Row>
   );
