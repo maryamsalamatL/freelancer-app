@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import RHFSelect from "../../ui/RHFSelect";
 import useChangeProposalStatus from "./useChangeProposalStatus";
 import Loading from "../../ui/Loading";
+import { useParams } from "react-router-dom";
 
 const options = [
   { label: "رد شده", value: 0 },
@@ -9,13 +10,18 @@ const options = [
   { label: "تایید شده", value: 2 },
 ];
 
-export default function ChangeProposalStatus({ proposalId, onClose }) {
-  const { register, handleSubmit } = useForm();
+export default function ChangeProposalStatus({ proposalId, onClose, status }) {
+  const { register, handleSubmit, watch } = useForm({
+    defaultValues: {
+      status,
+    },
+  });
   const { isUpdating, changeProposalStatus } = useChangeProposalStatus();
+  const { id: projectId } = useParams();
 
   const onSubmit = (data) => {
     changeProposalStatus(
-      { id: proposalId, data },
+      { id: proposalId, projectId, ...data },
       { onSuccess: () => onClose() }
     );
   };

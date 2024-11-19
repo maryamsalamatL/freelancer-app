@@ -36,6 +36,7 @@ export default function ProposalRow({ proposal, i }) {
           <ChangeProposalStatus
             proposalId={_id}
             onClose={() => setOpen(false)}
+            status={status}
           />
         </Modal>
       </td>
