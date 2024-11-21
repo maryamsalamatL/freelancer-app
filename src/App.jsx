@@ -14,6 +14,7 @@ import FreeLancerLayout from "./features/freelancer/FreelancerLayout";
 import FreeLancerDashboard from "./pages/FreelancerDashboard";
 import SubmittedProjects from "./pages/SubmittedProjects";
 import Proposals from "./pages/Proposals";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +41,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </DarkModeProvider>
   );

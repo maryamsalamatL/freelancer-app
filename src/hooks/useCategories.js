@@ -14,5 +14,10 @@ export default function useCategories() {
     value: c._id,
   }));
 
-  return { categories, isLoading };
+  const transformedCategories = rawCategories.map((c) => ({
+    label: c.title,
+    value: c.englishTitle,
+  }));
+
+  return { categories, isLoading, transformedCategories };
 }
