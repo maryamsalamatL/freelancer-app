@@ -12,13 +12,13 @@ export default function FilterBtnGroup({ options, filterField }) {
   return (
     <div className="flex items-center gap-x-2 text-xs">
       <span>وضعیت</span>
-      <div className="flex items-center gap-x-2 bg-secondary-0 rounded-lg border border-secondary-100">
+      <div className="flex items-center gap-x-2 p-1 bg-secondary-0 rounded-lg border border-secondary-100">
         {options.map((o) => {
           const isActive = o.value === currentFilter;
           return (
             <button
               key={o.value}
-              className={`whitespace-nowrap py-2 px-4 rounded-md transition-all duration-300 font-bold ${
+              className={`whitespace-nowrap py-1 px-4 rounded-md transition-all duration-300 font-bold ${
                 isActive
                   ? "bg-primary-900 text-white"
                   : "bg-secondary-0 text-secondary-800"
