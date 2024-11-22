@@ -35,8 +35,7 @@ export default function CheckOTPForm({
         toast("پروفایل شما در انتظار تایید است.");
         return navigate("/");
       }
-      if (user.role === "OWNER") return navigate("/owner");
-      if (user.role === "FREELANCER") return navigate("/freelancer");
+      if (user.role) return navigate(`/${user.role.toLowerCase()}`);
     } catch (error) {
       toast.error(error?.response?.data?.message || error.message);
     }
