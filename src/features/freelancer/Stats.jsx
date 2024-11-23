@@ -12,7 +12,7 @@ export default function Stats({ proposals }) {
   const balance = acceptedProposals.reduce((acc, curr) => acc + curr.price, 0);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="stats__layout gap-4">
       <Stat
         icon={<HiOutlineViewGrid className="w-20 h-20" />}
         title={"درخواست ها"}
