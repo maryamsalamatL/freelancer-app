@@ -11,7 +11,7 @@ const options = [
 ];
 
 export default function ChangeProposalStatus({ proposalId, onClose, status }) {
-  const { register, handleSubmit, watch } = useForm({
+  const { register, handleSubmit } = useForm({
     defaultValues: {
       status,
     },
