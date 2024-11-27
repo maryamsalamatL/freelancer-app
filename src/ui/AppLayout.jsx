@@ -3,7 +3,7 @@ import Header from "./Header";
 
 export default function AppLayout({ children }) {
   return (
-    <div className="grid grid-cols-[15rem_1fr] grid-rows-[auto_1fr]">
+    <div className="md:grid md:grid-cols-[15rem_1fr] md:grid-rows-[auto_1fr]">
       <Header />
       {children}
       <div className="bg-secondary-100 p-8 overflow-y-auto min-h-screen">

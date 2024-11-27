@@ -8,10 +8,15 @@ export default function ProjectsHeader() {
 
   return (
     <div className="flex justify-between items-center mb-8">
-      <h2 className="font-bold text-xl text-secondary-700">پروژه های شما</h2>
-      <button onClick={() => setIsFormOpen(true)} className="btn btn--primary flex items-center gap-x-2">
+      <h2 className="font-bold title__fontSize text-secondary-700">
+        پروژه های شما
+      </h2>
+      <button
+        onClick={() => setIsFormOpen(true)}
+        className="btn btn--primary flex items-center gap-x-2 rounded-full p-2 md:rounded-lg md:py-2"
+      >
         <HiOutlinePlus />
-        <span>اضافه کردن پروژه</span>
+        <span className="hidden md:block">اضافه کردن پروژه</span>
       </button>
       <Modal
         open={isFormOpen}

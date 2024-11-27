@@ -6,7 +6,7 @@ export default function ConfirmDelete({
 }) {
   return (
     <div>
-      <h2 className="font-bold text-base mb-8">
+      <h2 className="font-bold basic__fontSize mb-8">
         آیا از حذف {recourseName} مطمئن هستید؟
       </h2>
       <div className="flex items-center justify-between gap-x-4">

@@ -7,7 +7,7 @@ const colors = {
 
 export default function Stat({ value, title, icon, color }) {
   return (
-    <div className="rounded-lg bg-secondary-0 px-4 py-8 grid grid-cols-2 auto-rows-max gap-x-4">
+    <div className="rounded-lg bg-secondary-0 px-4 py-8 grid grid-cols-[auto_1fr] auto-rows-max gap-x-4">
       <span
         className={`row-span-2 w-24 h-24 rounded-full flex items-center justify-center ${colors[color]}`}
       >

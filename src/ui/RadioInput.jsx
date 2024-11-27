@@ -17,7 +17,9 @@ export default function RadioInput({
         checked={watch(name) === value}
         {...register(name, validationSchema)}
       />
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={id} className="text-xs sm:text-sm md:text-base">
+        {label}
+      </label>
     </div>
   );
 }

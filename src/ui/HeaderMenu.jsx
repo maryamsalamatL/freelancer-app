@@ -8,7 +8,7 @@ export default function HeaderMenu() {
     <ul className="flex items-center gap-x-4">
       <li>
         <Link to={"dashboard"}>
-          <HiOutlineUser className="h-5 w-5 text-primary-900" />
+          <HiOutlineUser className="icon text-primary-900" />
         </Link>
       </li>
       <li className="flex">

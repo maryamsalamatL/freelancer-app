@@ -77,17 +77,19 @@ export default function CheckOTPForm({
         </p>
       )}
       <form className="space-y-6" onSubmit={handleCheckOtp}>
-        <p className="font-bold text-secondary-800">کد تایید را وارد کنید</p>
+        <p className="font-bold text-secondary-800 md:text-base">
+          کد تایید را وارد کنید
+        </p>
         <OtpInput
           value={otp}
           onChange={setOtp}
           numInputs={6}
-          renderSeparator={<span>-</span>}
+          renderSeparator={<span className="text-secondary-800">-</span>}
           renderInput={(props, index) => (
             <input type="number" autoFocus={index === 0} {...props} />
           )}
           containerStyle="flex flex-row-reverse justify-center"
-          inputStyle="block !w-8 h-10 border border-primary-400 rounded-lg mx-1 sm:mx-2 text-secondary-800 focus:shadow focus:shadow-primary-500"
+          inputStyle="block !w-8 h-10 border border-primary-400 rounded-lg mx-1 sm:mx-2 text-secondary-800 bg-secondary-0 focus:shadow focus:shadow-primary-500"
         />
         {isPending ? (
           <Loading />
