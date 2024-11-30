@@ -138,6 +138,7 @@ export default function CreateProjectForm({ onClose, projectToEdit = {} }) {
           calendarPosition="bottom-center"
           calendar={persian}
           locale={persian_fa}
+          minDate={new Date()}
         />
       </div>
 

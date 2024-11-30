@@ -14,7 +14,7 @@ export default function Stat({ value, title, icon, color }) {
         {icon}
       </span>
       <span className="font-bold text-secondary-500 text-lg">{title}</span>
-      <span className="text-secondary-800 font-black sm:text-xl lg:text-3xl">
+      <span className="text-secondary-800 font-black sm:text-xl lg:text-3xl overflow-x-auto overflow-y-clip">
         {value}
       </span>
     </div>
