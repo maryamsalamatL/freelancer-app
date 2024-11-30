@@ -27,7 +27,10 @@ export default function AuthContainer() {
   });
 
   useEffect(() => {
-    if (user) navigate("/", { replace: true });
+    if (user) {
+      toast("شما قبلا ثبت نام کرده اید. لطفا وارد پنل خود شوید.");
+      navigate("/", { replace: true });
+    }
   }, [user]);
 
   const handleSendOtp = async ({ phoneNumber }) => {
