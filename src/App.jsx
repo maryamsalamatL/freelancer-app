@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import OwnerDashboard from "./pages/OwnerDashboard";
 import Projects from "./pages/Projects";
 import Project from "./pages/Project";
-import DarkModeProvider from "./context/darkModeContext";
+import DarkModeProvider from "./context/DarkModeContext";
 import OwnerLayout from "./features/owner/OwnerLayout";
 import FreeLancerLayout from "./features/freelancer/FreelancerLayout";
 import FreeLancerDashboard from "./pages/FreelancerDashboard";
