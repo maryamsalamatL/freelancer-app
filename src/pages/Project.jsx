@@ -1,6 +1,6 @@
 import ProjectHeader from "../features/project/ProjectHeader";
 import ProposalsTable from "../features/project/ProposalsTable";
-import useProject from "../features/Project/useProject";
+import useProject from "../features/project/useProject";
 import Loading from "../ui/Loading";
 
 export default function Project() {

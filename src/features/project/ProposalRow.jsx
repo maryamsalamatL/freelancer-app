@@ -2,7 +2,7 @@ import { useState } from "react";
 import Table from "../../ui/Table";
 import truncateText from "../../utils/truncateText";
 import Modal from "../../ui/Modal";
-import ChangeProposalStatus from "./ChangePRoposalStatus";
+import ChangeProposalStatus from "./ChangeProposalStatus";
 
 const statusStyle = [
   { label: "رد شده", className: "badge--danger" },
