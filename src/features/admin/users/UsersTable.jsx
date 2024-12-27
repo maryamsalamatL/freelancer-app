@@ -6,10 +6,11 @@ import UserRow from "./UserRow";
 
 export default function UsersTable() {
   const { isLoading, users } = useUsers();
- 
+  const filteredUsers = users.filter((user) => user.role !== "ADMIN");
+
   if (isLoading) return <Loading />;
 
-  if (!users.length) return <Empty resourceName={"کاربری"} />;
+  if (!filteredUsers.length) return <Empty resourceName={"کاربری"} />;
 
   return (
     <Table>
@@ -23,7 +24,7 @@ export default function UsersTable() {
         <th>عملیات</th>
       </Table.Header>
       <Table.Body>
-        {users.map((user, i) => (
+        {filteredUsers.map((user, i) => (
           <UserRow key={user._id} user={user} i={i} />
         ))}
       </Table.Body>
