@@ -17,7 +17,6 @@ export default function AuthContainer() {
     formState: { errors },
     handleSubmit,
     getValues,
-    setValue,
   } = useForm();
   const {
     mutateAsync,
@@ -44,29 +43,16 @@ export default function AuthContainer() {
     }
   };
 
-  const handleAdminLogin = () => {
-    setValue("phoneNumber", "09331111111");
-    setStep(2);
-  };
-
   const renderStep = () => {
     switch (step) {
       case 1:
         return (
-          <>
-            <SendOTPForm
-              onSendOtp={handleSubmit(handleSendOtp)}
-              isSendingOtp={isSendingOtp}
-              register={register}
-              errors={errors}
-            />
-            <button
-              className="btn btn__secondary w-full flex justify-center mt-8 text-secondary-700"
-              onClick={handleAdminLogin}
-            >
-              ورود به عنوان ادمین
-            </button>
-          </>
+          <SendOTPForm
+            onSendOtp={handleSubmit(handleSendOtp)}
+            isSendingOtp={isSendingOtp}
+            register={register}
+            errors={errors}
+          />
         );
       case 2:
         return (
