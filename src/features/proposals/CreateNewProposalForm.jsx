@@ -3,7 +3,7 @@ import TextField from "../../ui/TextField";
 import useCreateProposal from "./useCreateProposal";
 import Loading from "../../ui/Loading";
 
-export default function CreateNewProposalForm({ projectId }) {
+export default function CreateNewProposalForm({ projectId, onClose }) {
   const {
     register,
     handleSubmit,
@@ -15,7 +15,7 @@ export default function CreateNewProposalForm({ projectId }) {
     createProposal(
       { ...data, projectId },
       {
-        onSuccess: () => onclose(),
+        onSuccess: () => onClose(),
       }
     );
   };
