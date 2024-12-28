@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import useUser from "../features/authentication/useUser";
 import { HiOutlineLogin, HiOutlineUser } from "react-icons/hi";
+import AdminLogin from "../features/authentication/AdminLogin";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -29,10 +30,16 @@ export default function Home() {
         </h1>
       </div>
       <div className="w-full h-[calc(100vh-4rem)] absolute top-16 bg-[rgb(247,247,247)] md:flex md:items-center">
-        <h2 className="text-center md:text-start text-[rgb(24,33,47)] title__fontSize mt-6 flex-1 md:mr-4 lg:mr-8">
-          به <span className="font-bold text-primary-900">فریلنسر ایران </span>
-          خوش آمدید
-        </h2>
+        <div className="text-center md:text-start text-[rgb(24,33,47)] title__fontSize mt-6 flex-1 md:mr-4 lg:mr-8">
+          <h2>
+            به{" "}
+            <span className="font-bold text-primary-900">فریلنسر ایران </span>
+            خوش آمدید
+          </h2>
+          <span>
+            <AdminLogin />
+          </span>
+        </div>
         <img
           src="/images/bg3.gif"
           alt=""
