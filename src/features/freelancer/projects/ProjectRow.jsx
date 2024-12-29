@@ -6,6 +6,7 @@ import { MdAssignmentAdd } from "react-icons/md";
 import { useState } from "react";
 import Modal from "../../../ui/Modal";
 import CreateNewProposalForm from "../../proposals/CreateNewProposalForm";
+import toast from "react-hot-toast";
 
 const projectStatus = {
   OPEN: {
@@ -22,6 +23,14 @@ export default function ProjectRow({ project, i }) {
   const { title, budget, deadline, status, _id } = project;
   const [open, setOpen] = useState(false);
 
+  const handleClick = () => {
+    if (status === "CLOSED") {
+      toast.error("نمی توانید برای پروژه های بسته درخواست بفرستید.");
+    } else {
+      setOpen(true);
+    }
+  };
+
   return (
     <Table.Row>
       <td>{i + 1}</td>
@@ -34,7 +43,7 @@ export default function ProjectRow({ project, i }) {
         </span>
       </td>
       <td>
-        <button onClick={() => setOpen(true)}>
+        <button onClick={handleClick}>
           <MdAssignmentAdd className="icon text-primary-900" />
         </button>
         <Modal
